@@ -32,22 +32,24 @@
             this.barraTop = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.sideBar = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnCompetencias = new System.Windows.Forms.Button();
+            this.btnCapacitaciones = new System.Windows.Forms.Button();
             this.btnCandidatos = new System.Windows.Forms.Button();
             this.btnPuestos = new System.Windows.Forms.Button();
-            this.btnCapacitaciones = new System.Windows.Forms.Button();
             this.btnIdiomas = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnCompetencias = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.barraTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.sideBar.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // barraTop
@@ -83,6 +85,36 @@
             this.sideBar.Size = new System.Drawing.Size(198, 479);
             this.sideBar.TabIndex = 1;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnCompetencias);
+            this.panel2.Controls.Add(this.btnCapacitaciones);
+            this.panel2.Controls.Add(this.btnCandidatos);
+            this.panel2.Controls.Add(this.btnPuestos);
+            this.panel2.Controls.Add(this.btnIdiomas);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 78);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(198, 401);
+            this.panel2.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(0, 378);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(198, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Cerrar sesión";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -98,6 +130,38 @@
             this.button1.Text = "Experiencia laboral";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCompetencias
+            // 
+            this.btnCompetencias.BackColor = System.Drawing.Color.White;
+            this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompetencias.FlatAppearance.BorderSize = 0;
+            this.btnCompetencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompetencias.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCompetencias.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnCompetencias.Location = new System.Drawing.Point(0, 164);
+            this.btnCompetencias.Name = "btnCompetencias";
+            this.btnCompetencias.Size = new System.Drawing.Size(198, 41);
+            this.btnCompetencias.TabIndex = 1;
+            this.btnCompetencias.Text = "Competencias";
+            this.btnCompetencias.UseVisualStyleBackColor = false;
+            this.btnCompetencias.Click += new System.EventHandler(this.btnCompetencias_Click);
+            // 
+            // btnCapacitaciones
+            // 
+            this.btnCapacitaciones.BackColor = System.Drawing.Color.White;
+            this.btnCapacitaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCapacitaciones.FlatAppearance.BorderSize = 0;
+            this.btnCapacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapacitaciones.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCapacitaciones.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnCapacitaciones.Location = new System.Drawing.Point(0, 123);
+            this.btnCapacitaciones.Name = "btnCapacitaciones";
+            this.btnCapacitaciones.Size = new System.Drawing.Size(198, 41);
+            this.btnCapacitaciones.TabIndex = 4;
+            this.btnCapacitaciones.Text = "Capacitaciones";
+            this.btnCapacitaciones.UseVisualStyleBackColor = false;
+            this.btnCapacitaciones.Click += new System.EventHandler(this.btnCapacitaciones_Click);
             // 
             // btnCandidatos
             // 
@@ -130,22 +194,6 @@
             this.btnPuestos.Text = "Puestos";
             this.btnPuestos.UseVisualStyleBackColor = false;
             this.btnPuestos.Click += new System.EventHandler(this.btnPuestos_Click);
-            // 
-            // btnCapacitaciones
-            // 
-            this.btnCapacitaciones.BackColor = System.Drawing.Color.White;
-            this.btnCapacitaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCapacitaciones.FlatAppearance.BorderSize = 0;
-            this.btnCapacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapacitaciones.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCapacitaciones.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCapacitaciones.Location = new System.Drawing.Point(0, 123);
-            this.btnCapacitaciones.Name = "btnCapacitaciones";
-            this.btnCapacitaciones.Size = new System.Drawing.Size(198, 41);
-            this.btnCapacitaciones.TabIndex = 4;
-            this.btnCapacitaciones.Text = "Capacitaciones";
-            this.btnCapacitaciones.UseVisualStyleBackColor = false;
-            this.btnCapacitaciones.Click += new System.EventHandler(this.btnCapacitaciones_Click);
             // 
             // btnIdiomas
             // 
@@ -183,44 +231,32 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // btnCompetencias
-            // 
-            this.btnCompetencias.BackColor = System.Drawing.Color.White;
-            this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCompetencias.FlatAppearance.BorderSize = 0;
-            this.btnCompetencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompetencias.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCompetencias.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCompetencias.Location = new System.Drawing.Point(0, 164);
-            this.btnCompetencias.Name = "btnCompetencias";
-            this.btnCompetencias.Size = new System.Drawing.Size(198, 41);
-            this.btnCompetencias.TabIndex = 1;
-            this.btnCompetencias.Text = "Competencias";
-            this.btnCompetencias.UseVisualStyleBackColor = false;
-            this.btnCompetencias.Click += new System.EventHandler(this.btnCompetencias_Click);
-            // 
             // panelContenido
             // 
+            this.panelContenido.AutoScroll = true;
             this.panelContenido.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(198, 31);
             this.panelContenido.Name = "panelContenido";
             this.panelContenido.Size = new System.Drawing.Size(660, 479);
             this.panelContenido.TabIndex = 2;
+            this.panelContenido.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenido_Paint);
             // 
-            // panel2
+            // button3
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.btnCompetencias);
-            this.panel2.Controls.Add(this.btnCapacitaciones);
-            this.panel2.Controls.Add(this.btnCandidatos);
-            this.panel2.Controls.Add(this.btnPuestos);
-            this.panel2.Controls.Add(this.btnIdiomas);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 78);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(198, 401);
-            this.panel2.TabIndex = 3;
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button3.Location = new System.Drawing.Point(0, 246);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(198, 41);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Empleados";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -237,9 +273,9 @@
             this.barraTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.sideBar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,5 +295,7 @@
         private Panel panel1;
         private PictureBox pictureBox2;
         private Panel panel2;
+        private Button button2;
+        private Button button3;
     }
 }
