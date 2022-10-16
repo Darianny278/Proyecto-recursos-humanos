@@ -41,11 +41,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnCompetencias = new System.Windows.Forms.Button();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.barraTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.sideBar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // barraTop
@@ -73,13 +75,8 @@
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.White;
-            this.sideBar.Controls.Add(this.button1);
-            this.sideBar.Controls.Add(this.btnCandidatos);
-            this.sideBar.Controls.Add(this.btnPuestos);
-            this.sideBar.Controls.Add(this.btnCapacitaciones);
-            this.sideBar.Controls.Add(this.btnIdiomas);
+            this.sideBar.Controls.Add(this.panel2);
             this.sideBar.Controls.Add(this.panel1);
-            this.sideBar.Controls.Add(this.btnCompetencias);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.Location = new System.Drawing.Point(0, 31);
             this.sideBar.Name = "sideBar";
@@ -89,11 +86,12 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.button1.Location = new System.Drawing.Point(0, 319);
+            this.button1.Location = new System.Drawing.Point(0, 205);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 41);
             this.button1.TabIndex = 7;
@@ -104,11 +102,12 @@
             // btnCandidatos
             // 
             this.btnCandidatos.BackColor = System.Drawing.Color.White;
+            this.btnCandidatos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCandidatos.FlatAppearance.BorderSize = 0;
             this.btnCandidatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCandidatos.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCandidatos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCandidatos.Location = new System.Drawing.Point(0, 272);
+            this.btnCandidatos.Location = new System.Drawing.Point(0, 82);
             this.btnCandidatos.Name = "btnCandidatos";
             this.btnCandidatos.Size = new System.Drawing.Size(198, 41);
             this.btnCandidatos.TabIndex = 6;
@@ -119,11 +118,12 @@
             // btnPuestos
             // 
             this.btnPuestos.BackColor = System.Drawing.Color.White;
+            this.btnPuestos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPuestos.FlatAppearance.BorderSize = 0;
             this.btnPuestos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPuestos.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPuestos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnPuestos.Location = new System.Drawing.Point(0, 225);
+            this.btnPuestos.Location = new System.Drawing.Point(0, 41);
             this.btnPuestos.Name = "btnPuestos";
             this.btnPuestos.Size = new System.Drawing.Size(198, 41);
             this.btnPuestos.TabIndex = 5;
@@ -134,11 +134,12 @@
             // btnCapacitaciones
             // 
             this.btnCapacitaciones.BackColor = System.Drawing.Color.White;
+            this.btnCapacitaciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCapacitaciones.FlatAppearance.BorderSize = 0;
             this.btnCapacitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapacitaciones.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCapacitaciones.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCapacitaciones.Location = new System.Drawing.Point(0, 178);
+            this.btnCapacitaciones.Location = new System.Drawing.Point(0, 123);
             this.btnCapacitaciones.Name = "btnCapacitaciones";
             this.btnCapacitaciones.Size = new System.Drawing.Size(198, 41);
             this.btnCapacitaciones.TabIndex = 4;
@@ -149,11 +150,12 @@
             // btnIdiomas
             // 
             this.btnIdiomas.BackColor = System.Drawing.Color.White;
+            this.btnIdiomas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnIdiomas.FlatAppearance.BorderSize = 0;
             this.btnIdiomas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIdiomas.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnIdiomas.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnIdiomas.Location = new System.Drawing.Point(0, 131);
+            this.btnIdiomas.Location = new System.Drawing.Point(0, 0);
             this.btnIdiomas.Name = "btnIdiomas";
             this.btnIdiomas.Size = new System.Drawing.Size(198, 41);
             this.btnIdiomas.TabIndex = 3;
@@ -184,11 +186,12 @@
             // btnCompetencias
             // 
             this.btnCompetencias.BackColor = System.Drawing.Color.White;
+            this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCompetencias.FlatAppearance.BorderSize = 0;
             this.btnCompetencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompetencias.Font = new System.Drawing.Font("Segoe UI Historic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCompetencias.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCompetencias.Location = new System.Drawing.Point(0, 84);
+            this.btnCompetencias.Location = new System.Drawing.Point(0, 164);
             this.btnCompetencias.Name = "btnCompetencias";
             this.btnCompetencias.Size = new System.Drawing.Size(198, 41);
             this.btnCompetencias.TabIndex = 1;
@@ -205,6 +208,20 @@
             this.panelContenido.Size = new System.Drawing.Size(660, 479);
             this.panelContenido.TabIndex = 2;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnCompetencias);
+            this.panel2.Controls.Add(this.btnCapacitaciones);
+            this.panel2.Controls.Add(this.btnCandidatos);
+            this.panel2.Controls.Add(this.btnPuestos);
+            this.panel2.Controls.Add(this.btnIdiomas);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 78);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(198, 401);
+            this.panel2.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -216,11 +233,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.barraTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.sideBar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,5 +258,6 @@
         private Button btnIdiomas;
         private Panel panel1;
         private PictureBox pictureBox2;
+        private Panel panel2;
     }
 }
