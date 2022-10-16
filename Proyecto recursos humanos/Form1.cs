@@ -1,17 +1,40 @@
+using Proyecto_recursos_humanos.Entities;
+using Proyecto_recursos_humanos.Repository;
 using Proyecto_recursos_humanos.Views;
 
 namespace Proyecto_recursos_humanos
 {
     public partial class Form1 : Form
     {
+        private readonly DBProyectoFinalContext _context;
+        private readonly IBaseRepository<Usuario> _repository;
+        private readonly UnitOfWork _unitOfWork;
+
         public Form1()
         {
+            _context = new DBProyectoFinalContext();
+            _unitOfWork = new UnitOfWork(_context);
+            _repository = new BaseRepository<Usuario>(_context);
             InitializeComponent();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Usuario user = new Usuario();
+
+            user = _repository.GetAllByFilter((usuario) => usuario.Logged == true).FirstOrDefault();
+            if (user != null)
+            {
+
+                user.Nombre = user.Nombre;
+                user.Correo = user.Correo;
+                user.Password = user.Password;
+                user.Admin = false;
+                user.Logged = false;
+                _repository.Update(user);
+                _unitOfWork.Commit();
+                Application.Exit();
+            }
         }
 
 
@@ -55,6 +78,27 @@ namespace Proyecto_recursos_humanos
         private void button1_Click(object sender, EventArgs e)
         {
             loadForm(new FormExperienciaLaboral());
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            var user = _repository.GetAllByFilter((usuario) => usuario.Logged == true).FirstOrDefault();
+            if (user != null)
+            {
+                if (user.Correo != "admin@gmail.com")
+                {
+                    btnIdiomas.Hide();
+                    btnCompetencias.Hide();
+                    btnPuestos.Hide();
+                }
+
+                else
+                {
+                    button1.Hide();
+                    btnCapacitaciones.Hide();
+                }
+            }
         }
     }
 }
