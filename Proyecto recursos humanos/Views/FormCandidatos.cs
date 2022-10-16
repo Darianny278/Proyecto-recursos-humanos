@@ -1,4 +1,5 @@
-﻿using Proyecto_recursos_humanos.Entities;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Proyecto_recursos_humanos.Entities;
 using Proyecto_recursos_humanos.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Proyecto_recursos_humanos.Views
 {
@@ -25,6 +27,7 @@ namespace Proyecto_recursos_humanos.Views
         private readonly IBaseRepository<UsuarioIdioma> _repositoryUI;
         private readonly IBaseRepository<UsuarioCompetencium> _repositoryUC;
         private readonly IBaseRepository<Empleado> _repositoryEmpleado;
+        private readonly IBaseRepository<Capacitacione> _repositoryCapacitacion;
         private readonly UnitOfWork _unitOfWork;
         public FormCandidatos()
         {
@@ -39,6 +42,7 @@ namespace Proyecto_recursos_humanos.Views
             _repositoryUI = new BaseRepository<UsuarioIdioma>(_context);
             _repositoryUC = new BaseRepository<UsuarioCompetencium>(_context);
             _repositoryEmpleado = new BaseRepository<Empleado>(_context);
+            _repositoryCapacitacion = new BaseRepository<Capacitacione>(_context);
             InitializeComponent();
         }
 
@@ -91,6 +95,18 @@ namespace Proyecto_recursos_humanos.Views
             {
                 dataGridView1.Hide();
                 button4.Hide();
+                comboBox2.Hide();
+                comboBox3.Hide();
+                textBox2.Hide();
+                button5.Hide();
+                label11.Hide();
+                label12.Hide();
+                label13.Hide();
+                label14.Hide();
+                dataGridView2.Hide();
+                dataGridView3.Hide();
+                dataGridView4.Hide();
+                dataGridView5.Hide();
             } else
             {
                 dataGridView1.DataSource = _repository.GetAll();
@@ -193,7 +209,7 @@ namespace Proyecto_recursos_humanos.Views
             cap.RecomendadoPor = textBox6.Text;
             cap.Reclutado = false;
 
-            var solicitud = _repository.GetAllByFilter((so) => so.UsuarioId == user.Id).FirstOrDefault();
+            var solicitud = _repository.GetAllByFilter((so) => so.UsuarioId == user.Id && so.Cedula == long.Parse(textBox4.Text)).FirstOrDefault();
             if (solicitud == null)
             {
                 _repository.Add(cap);
@@ -241,8 +257,8 @@ namespace Proyecto_recursos_humanos.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var user = _repositoryUser.GetAllByFilter((user) => user.Nombre == textBox1.Text).FirstOrDefault();
-            var cap = _repository.GetAllByFilter((so) => so.UsuarioId == user.Id).FirstOrDefault();
+            var cap = _repository.GetAllByFilter((so) => so.Id == long.Parse(textBox2.Text)).FirstOrDefault();
+            var user = _repositoryUser.GetAllByFilter((user) => user.Id == cap.UsuarioId).FirstOrDefault();
             var puesto = _repositoryPuesto.GetAllByFilter((pu) => pu.Id == cap.PuestoId).FirstOrDefault();
 
             DateTime dt = DateTime.Now;
@@ -254,20 +270,22 @@ namespace Proyecto_recursos_humanos.Views
             emp.Puesto = puesto.Nombre;
             emp.Salario = cap.Salario;
             emp.Departamento = cap.Departamento;
-            emp.FechaInicio = "10/11/2022";
+            emp.FechaInicio = sDate;
             emp.Status = true;
 
-            _repositoryEmpleado.Add(emp);
-            _unitOfWork.Commit();
+            if (cap.Reclutado != true)
+            {
+                _repositoryEmpleado.Add(emp);
+                _unitOfWork.Commit();
 
-            updateStatus();
+                updateStatus();
+            }
 
         }
         
         public void updateStatus()
         {
-            var user = _repositoryUser.GetAllByFilter((user) => user.Nombre == textBox1.Text).FirstOrDefault();
-            var cap = _repository.GetAllByFilter((so) => so.UsuarioId == user.Id).FirstOrDefault();
+            var cap = _repository.GetAllByFilter((so) => so.Id == long.Parse(textBox2.Text)).FirstOrDefault();
             cap.Cedula = cap.Cedula;
             cap.UsuarioId = cap.UsuarioId;
             cap.PuestoId = cap.PuestoId;
@@ -281,6 +299,107 @@ namespace Proyecto_recursos_humanos.Views
                 _repository.Update(cap);
                 _unitOfWork.Commit();
              
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var can = _repository.GetAllByFilter((can) => can.Id == long.Parse(textBox2.Text)).FirstOrDefault();
+
+            dataGridView2.DataSource = _repositoryUI.GetAllByFilter((idioma) => idioma.UsuarioId == can.UsuarioId);
+            dataGridView3.DataSource = _repositoryCapacitacion.GetAllByFilter((cap) => cap.UsuarioId == can.UsuarioId);
+            dataGridView4.DataSource = _repositoryUC.GetAllByFilter((cap) => cap.UsuarioId == can.UsuarioId);
+            dataGridView5.DataSource = _repositoryExp.GetAllByFilter((cap) => cap.UsuarioId == can.UsuarioId);
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox2.SelectedItem.ToString() == "idiomas")
+            {
+                var idiomas = _repositoryIdioma.GetAll();
+                comboBox3.Items.Clear();
+                foreach (var item in idiomas)
+                {
+                    comboBox3.Items.Add(item.Name);
+                }
+            }
+            if(comboBox2.SelectedItem.ToString() == "puestos")
+            {
+                var puestos = _repositoryPuesto.GetAll();
+                comboBox3.Items.Clear();
+                foreach (var item in puestos)
+                {
+                    comboBox3.Items.Add(item.Nombre);
+                }
+            }
+            if (comboBox2.SelectedItem.ToString() == "competencias")
+            {
+                var competencias = _repositoryCompetencia.GetAll();
+                comboBox3.Items.Clear();
+                foreach (var item in competencias)
+                {
+                    comboBox3.Items.Add(item.Description);
+                }
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            if (!(sender is TextBox txt))
+                return;
+
+            // Filter out any invalid chars that are typed/pasted and leave the cursor where it was (or reasonably close).
+            int pos = txt.SelectionStart;
+            txt.Text = string.Concat(txt.Text.Where(c => "0123456789".IndexOf(c) != -1));
+            txt.SelectionStart = pos;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem.ToString() == "idiomas")
+            {
+                var idioma = _repositoryIdioma.GetAllByFilter((idom) => idom.Name == comboBox3.SelectedItem.ToString()).FirstOrDefault();
+                var users = _repositoryUI.GetAllByFilter((idi) => idi.IdiomaId == idioma.Id);
+                var list = new List<Candidato>();
+                foreach (var user in users)
+                {
+                    var candidato = _repository.GetAllByFilter((cand) => cand.UsuarioId == user.Id).FirstOrDefault();
+                    list.Add(candidato);
+   
+                }
+
+                dataGridView1.DataSource = list;
+            }
+            if (comboBox2.SelectedItem.ToString() == "puestos")
+            {
+                var puesto = _repositoryPuesto.GetAllByFilter((idom) => idom.Nombre == comboBox3.SelectedItem.ToString()).FirstOrDefault();
+
+                dataGridView1.DataSource = _repository.GetAllByFilter((can) => can.PuestoId == puesto.Id);
+            }
+            if (comboBox2.SelectedItem.ToString() == "competencias")
+            {
+                var competencia = _repositoryCompetencia.GetAllByFilter((idom) => idom.Description == comboBox3.SelectedItem.ToString()).FirstOrDefault();
+                var users = _repositoryUC.GetAllByFilter((idi) => idi.CompetenciaId == competencia.Id);
+                var list = new List<Candidato>();
+                foreach (var user in users)
+                {
+                    var candidato = _repository.GetAllByFilter((cand) => cand.UsuarioId == user.Id).FirstOrDefault();
+                    list.Add(candidato);
+
+                }
+
+                dataGridView1.DataSource = list;
             }
         }
     }

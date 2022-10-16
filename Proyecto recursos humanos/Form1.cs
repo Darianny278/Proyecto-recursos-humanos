@@ -29,7 +29,7 @@ namespace Proyecto_recursos_humanos
                 user.Nombre = user.Nombre;
                 user.Correo = user.Correo;
                 user.Password = user.Password;
-                user.Admin = false;
+                user.Admin = user.Admin;
                 user.Logged = false;
                 _repository.Update(user);
                 _unitOfWork.Commit();
@@ -91,6 +91,7 @@ namespace Proyecto_recursos_humanos
                     btnIdiomas.Hide();
                     btnCompetencias.Hide();
                     btnPuestos.Hide();
+                    button3.Hide();
                 }
 
                 else
@@ -99,6 +100,38 @@ namespace Proyecto_recursos_humanos
                     btnCapacitaciones.Hide();
                 }
             }
+        }
+
+        private void panelContenido_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Usuario user = new Usuario();
+
+            user = _repository.GetAllByFilter((usuario) => usuario.Logged == true).FirstOrDefault();
+            if (user != null)
+            {
+
+                user.Nombre = user.Nombre;
+                user.Correo = user.Correo;
+                user.Password = user.Password;
+                user.Admin = user.Admin;
+                user.Logged = false;
+                _repository.Update(user);
+                _unitOfWork.Commit();
+
+                this.Hide();
+                FormLogin fl = new FormLogin();
+                fl.Show();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loadForm(new FormEmpleado());
         }
     }
 }
